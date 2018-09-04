@@ -43,8 +43,6 @@ function getText1() {
         riskRate = 0;
     }
     document.getElementById('myBar').style.width = riskRate + '%';
-    document.getElementById('display').innerHTML = 'Your risk ' + status;
-
 }
 
 // reset progress bar
@@ -56,7 +54,7 @@ function resetProgressBar() {
 var request = new XMLHttpRequest();
 // A proxyurl to request GET to deal with Access-Control-*
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-request.open('GET', proxyurl+'http://35.197.166.143/Api/Park', true);
+request.open('GET', proxyurl + 'http://35.197.166.143/Api/Park', true);
 request.onload = function() {
     // access json data here
     var data = JSON.parse(this.response);
