@@ -1,8 +1,35 @@
 document.getElementById('submitBtn').addEventListener("click", getText1);
+document.getElementById('weightInput').addEventListener("change", validateWeight);
+document.getElementById('heightInput').addEventListener("change", validateHeight);
+
+function validateWeight() {
+    var weight = document.getElementById('weightInput').value;
+    if (weight <= 0 || weight >=300) {
+        document.getElementById('weightAlert').innerHTML = 'Weight should be 0~300 kg';
+    } else {
+        document.getElementById('weightAlert').innerHTML = '';
+    }
+}
+
+function validateHeight() {
+    var height = document.getElementById('heightInput').value;
+    if (height <= 100 || height >= 240) {
+        document.getElementById('heightAlert').innerHTML = 'Height should be 100~240 cm';
+    } else {
+        document.getElementById('heightAlert').innerHTML = '';
+    }
+}
+
+// reset progress bar and input
+function resetProgressBar() {
+    document.getElementById('myBar').style.width = 0;
+    document.getElementById('weightAlert').innerHTML = '';
+    document.getElementById('heightAlert').innerHTML = '';
+}
 
 function getText1() {
-    var weight = document.getElementById('text1').value;
-    var height = document.getElementById('text2').value / 100;
+    var weight = document.getElementById('weightInput').value;
+    var height = document.getElementById('heightInput').value / 100;
     var bmi = weight / (height * height);
     var selector = document.getElementById('activityHour').value;
     var obesityRate;
@@ -43,11 +70,6 @@ function getText1() {
         riskRate = 0;
     }
     document.getElementById('myBar').style.width = riskRate + '%';
-}
-
-// reset progress bar
-function resetProgressBar() {
-    document.getElementById('myBar').style.width = 0;
 }
 
 // Get back-end data and insert to website table
