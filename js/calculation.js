@@ -80,15 +80,6 @@ request.open('GET', proxyurl + 'http://35.197.166.143/Api/Park', true);
 request.onload = function() {
     // access json data here
     var data = JSON.parse(this.response);
-    // var div = document.getElementById('tableDiv');
-    // table = div.appendChild("table");
-    // table.id = 'parkTable';
-    // var trow = table.createElement("tr");
-    // var thead1 = trow.createElement("th");
-    // thead1.value = "Name"
-    // var thead2 = trow.createElement("th");
-    // var thead3 = trow.createElement("th");
-    // var thead4 = trow.createElement("th");
     if (request.status >= 200 && request.status < 400) {
         data.forEach(item => {
             insertNewRow(item.Name, item.Suburb, item.Postcode, item.State);
@@ -98,8 +89,6 @@ request.onload = function() {
         errorMessage.innerHTML = `Gah, it's not working!`;
     }
 }
-
-// request.send();
 
 // function to insert new row with attributes in the table "#parkTable"
 function insertNewRow(ele0, ele1, ele2, ele3) {

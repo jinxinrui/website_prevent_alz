@@ -1,5 +1,5 @@
 var i = 0;
-var txt = 'If you are 40 to 60 years old, find out how you can reduce the change of getting Alzheimer\'s in future.';
+var txt = 'If you are 40 to 60 years old, find out how you can reduce the chance of getting Alzheimer\'s in future.';
 var speed = 50;
 
 function typeWriter() {
