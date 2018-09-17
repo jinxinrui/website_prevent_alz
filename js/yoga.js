@@ -1,10 +1,9 @@
 window.onload = () => {
     getAllData();
 }
+
 // Add event listener on search box when a key is released
 // document.getElementById('searchBox').addEventListener('keyup', filterTable);
-
-
 
 // Get back-end data and insert to website table
 function getAllData() {

@@ -1,27 +1,35 @@
-// Get back-end data and insert to website table
-var request = new XMLHttpRequest();
-// A proxyurl to request GET to deal with Access-Control-*
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-request.open('GET', proxyurl + 'http://35.189.41.186/api/taichi', true);
-request.onload = function() {
-    // access json data here
-    let data = JSON.parse(this.response);
-    if (request.status >= 200 && request.status < 400) {
-        $('#myTable').DataTable( {
-            data: data,
-            "columns": [
-                {"data": "Name"},
-                {"data": "Address"},
-                {"data": "Suburb"},
-                {"data": "Postcode"},
-                {"data": "State"}
-            ]
-        });
-    } else {
-        const errorMessage = document.getElementById('errorMsg');
-        errorMessage.innerHTML = `Gah, it's not working!`;
-    }
+window.onload = () => {
+    getAllData();
 }
+
+function getAllData() {
+    // Get back-end data and insert to website table
+    var request = new XMLHttpRequest();
+// A proxyurl to request GET to deal with Access-Control-*
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    request.open('GET', proxyurl + 'http://35.189.41.186/api/taichi', true);
+    request.onload = function() {
+        // access json data here
+        let data = JSON.parse(this.response);
+        if (request.status >= 200 && request.status < 400) {
+            $('#myTable').DataTable( {
+                data: data,
+                "columns": [
+                    {"data": "Name"},
+                    {"data": "Address"},
+                    {"data": "Suburb"},
+                    {"data": "Postcode"},
+                    {"data": "State"}
+                ]
+            });
+        } else {
+            const errorMessage = document.getElementById('errorMsg');
+            errorMessage.innerHTML = `Gah, it's not working!`;
+        }
+    }
+    request.send();
+}
+
 
 // function to insert new row with attributes in the table "#parkTable"
 function insertNewRow(ele0, ele1, ele2, ele3, ele4) {
