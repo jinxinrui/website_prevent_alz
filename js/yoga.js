@@ -15,7 +15,6 @@ function getAllData() {
         // access json data here
         let data = JSON.parse(request.response);
         if (request.status >= 200 && request.status < 400) {
-            console.log(request.responseText);
             $('#myTable').DataTable( {
                 data: data,
                 "columns": [
@@ -26,6 +25,8 @@ function getAllData() {
                     {"data": "State"}
                 ]
             });
+            // hide loading icon when received data
+            document.getElementById('loadingIcon').style.visibility = 'hidden';
         } else {
             const errorMessage = document.getElementById('errorMsg');
             errorMessage.innerHTML = `Cannot Connect To Database!`;

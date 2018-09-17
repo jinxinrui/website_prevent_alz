@@ -21,6 +21,8 @@ function getAllData() {
                     {"data": "State"}
                 ]
             });
+            // hide loading icon when received data
+            document.getElementById('loadingIcon').style.visibility = 'hidden';
         } else {
             const errorMessage = document.getElementById('errorMsg');
             errorMessage.innerHTML = `Gah, it's not working!`;

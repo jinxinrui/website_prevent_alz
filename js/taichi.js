@@ -5,7 +5,7 @@ window.onload = () => {
 function getAllData() {
     // Get back-end data and insert to website table
     var request = new XMLHttpRequest();
-// A proxyurl to request GET to deal with Access-Control-*
+    // A proxyurl to request GET to deal with Access-Control-*
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     request.open('GET', proxyurl + 'http://35.189.41.186/api/taichi', true);
     request.onload = function() {
@@ -22,6 +22,8 @@ function getAllData() {
                     {"data": "State"}
                 ]
             });
+            // hide loading icon when received data
+            document.getElementById('loadingIcon').style.visibility = 'hidden';
         } else {
             const errorMessage = document.getElementById('errorMsg');
             errorMessage.innerHTML = `Gah, it's not working!`;

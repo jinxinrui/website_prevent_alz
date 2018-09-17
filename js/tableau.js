@@ -1,3 +1,12 @@
+window.onload = () => {
+    ausstatsViz();
+    dementiaFemaleViz();
+    dementiaMaleViz();
+    dementiaPeopleViz();
+    deathRateViz();
+    forecastViz();
+}
+
 function ageGroupViz() {
     // JS object that points at empty div in the html
     var placeholderDiv = document.getElementById('ageGroupViz');
@@ -58,3 +67,62 @@ function forecastViz() {
     viz = new tableau.Viz(placeholderDiv, url, options);
 }
 
+function ausstatsViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("ausstatsViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/Australiastats/statsaus?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}
+
+function dementiaFemaleViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("dementiaFemaleViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/femaleswithdementiabystate2011-2018/femalesanddementia?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}
+
+function dementiaMaleViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("dementiaMaleViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/Maleswithdementiabystate2011-2018/malesanddementia?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}
+
+function dementiaPeopleViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("dementiaPeopleViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/Noofpeoplewithdementiabystate2011-2018/australiadementia?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}

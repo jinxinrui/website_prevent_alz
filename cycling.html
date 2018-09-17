@@ -8,6 +8,8 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+    <!-- for loading icon -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container">
@@ -28,6 +30,11 @@
         </tr>
         </thead>
     </table>
+    <div id="loadingIcon" style="text-align: center">
+        <button class="btn-primary" disabled="true">
+            <i class="fa fa-spinner fa-spin"></i>Loading
+        </button>
+    </div>
 </div>
 
 <!-- Bootstrap core JavaScript -->
