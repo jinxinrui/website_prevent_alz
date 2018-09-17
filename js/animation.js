@@ -1,3 +1,7 @@
+window.onload = () => {
+    typeWriter();
+}
+
 let i = 0;
 function typeWriter() {
   let txt = 'If you are 40 to 60 years old, find out how you can reduce the \
@@ -9,5 +13,3 @@ function typeWriter() {
         setTimeout(typeWriter, speed);
     }
 }
-
-window.onload(typeWriter());

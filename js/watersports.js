@@ -5,9 +5,8 @@ window.onload = () => {
 function getAllData() {
     // Get back-end data and insert to website table
     var request = new XMLHttpRequest();
-    // A proxyurl to request GET to deal with Access-Control-*
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    request.open('GET', proxyurl + 'http://35.189.41.186/api/swimming', true);
+    request.open('GET', proxyurl + 'http://35.189.41.186/api/watersports', true);
     request.onload = function() {
         // access json data here
         let data = JSON.parse(this.response);
@@ -16,7 +15,7 @@ function getAllData() {
                 data: data,
                 "columns": [
                     {"data": "Name"},
-                    {"data": "addresses"},
+                    {"data": "Address"},
                     {"data": "Suburb"},
                     {"data": "Postcode"},
                     {"data": "State"}
