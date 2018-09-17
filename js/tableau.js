@@ -42,3 +42,19 @@ function deathRateViz() {
     };
     viz = new tableau.Viz(placeholderDiv, url, options);
 }
+
+function forecastViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("forecastViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/Alzheimersdeaths2005-14-Forecasting/Alzheimersdeaths?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}
+

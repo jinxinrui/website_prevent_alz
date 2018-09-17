@@ -1,18 +1,18 @@
-document.getElementById('submitBtn').addEventListener("click", getText1);
-document.getElementById('weightInput').addEventListener("change", validateWeight);
-document.getElementById('heightInput').addEventListener("change", validateHeight);
+document.getElementById('submitBtn').addEventListener("click", calculate);
+document.myForm.weight.addEventListener('change', validateWeight);
+document.myForm.height.addEventListener('change', validateHeight);
 
 function validateWeight() {
-    var weight = document.getElementById('weightInput').value;
-    if (weight <= 0 || weight >=300) {
-        document.getElementById('weightAlert').innerHTML = 'Weight should be 0~300 kg';
+    let weight = document.myForm.weight.value;
+    if (weight <= 10 || weight >=300) {
+        document.getElementById('weightAlert').innerHTML = 'Weight should be 10~300 kg';
     } else {
         document.getElementById('weightAlert').innerHTML = '';
     }
 }
 
 function validateHeight() {
-    var height = document.getElementById('heightInput').value;
+    let height = document.myForm.height.value;
     if (height <= 100 || height >= 240) {
         document.getElementById('heightAlert').innerHTML = 'Height should be 100~240 cm';
     } else {
@@ -27,13 +27,14 @@ function resetProgressBar() {
     document.getElementById('heightAlert').innerHTML = '';
 }
 
-function getText1() {
-    var weight = document.getElementById('weightInput').value;
-    var height = document.getElementById('heightInput').value / 100;
-    var bmi = weight / (height * height);
-    var selector = document.getElementById('activityHour').value;
-    var obesityRate;
-    var activityRate;
+//
+function calculate() {
+    let weight = document.getElementById('weightInput').value;
+    let height = document.getElementById('heightInput').value / 100;
+    let bmi = weight / (height * height);
+    let selector = document.getElementById('activityHour').value;
+    let obesityRate;
+    let activityRate;
     switch (selector) {
         case '0':
             activityRate = 0.19;
@@ -61,45 +62,12 @@ function getText1() {
     } else {
         obesityRate = 0.4885;
     }
-    let worstcase = 12.720;
-    let bestcase = 3.694;
+    let worstcase = 15.587;
+    let bestcase = 3.183;
     let total = worstcase - bestcase;
     let status = (obesityRate + activityRate) * 14.3 - bestcase;
     let riskRate = status / total * 100;
-    if (weight == 0 || height == 0) {
-        riskRate = 0;
+    if (weight >= 10 && weight <=300 && height*100 >= 100 && height*100 <= 240) {
+        document.getElementById('myBar').style.width = riskRate + '%';
     }
-    document.getElementById('myBar').style.width = riskRate + '%';
-}
-
-// Get back-end data and insert to website table
-var request = new XMLHttpRequest();
-// A proxyurl to request GET to deal with Access-Control-*
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-request.open('GET', proxyurl + 'http://35.197.166.143/Api/Park', true);
-request.onload = function() {
-    // access json data here
-    var data = JSON.parse(this.response);
-    if (request.status >= 200 && request.status < 400) {
-        data.forEach(item => {
-            insertNewRow(item.Name, item.Suburb, item.Postcode, item.State);
-        });
-    } else {
-        const errorMessage = document.getElementById('errorMsg');
-        errorMessage.innerHTML = `Gah, it's not working!`;
-    }
-}
-
-// function to insert new row with attributes in the table "#parkTable"
-function insertNewRow(ele0, ele1, ele2, ele3) {
-    const table = document.getElementById('parkTable');
-    var row = table.insertRow();
-    var cell0 = row.insertCell();
-    var cell1 = row.insertCell();
-    var cell2 = row.insertCell();
-    var cell3 = row.insertCell();
-    cell0.innerHTML = ele0;
-    cell1.innerHTML = ele1;
-    cell2.innerHTML = ele2;
-    cell3.innerHTML = ele3;
 }
