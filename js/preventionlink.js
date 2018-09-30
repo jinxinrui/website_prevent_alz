@@ -1,4 +1,4 @@
-document.getElementById('crossword').addEventListener('click', openCrosswordLink);
+// document.getElementById('crossword').addEventListener('click', openCrosswordLink);
 document.getElementById('puzzle').addEventListener('click', openPuzzleLink);
 document.getElementById('cardgame').addEventListener('click', openCardgameLink);
 
