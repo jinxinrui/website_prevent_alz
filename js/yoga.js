@@ -19,11 +19,12 @@ function getAllData() {
                 data: data,
                 "columns": [
                     {"data": "Name"},
-                    {"data": "Address"},
+                    {"data": "address"},
                     {"data": "Suburb"},
                     {"data": "Postcode"},
                     {"data": "State"}
-                ]
+                ],
+                searching: false
             });
             // hide loading icon when received data
             document.getElementById('loadingIcon').style.visibility = 'hidden';
