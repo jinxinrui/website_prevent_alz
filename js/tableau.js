@@ -1,5 +1,4 @@
 window.onload = () => {
-    ausstatsViz();
     dementiaFemaleViz();
     dementiaMaleViz();
     dementiaPeopleViz();

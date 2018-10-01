@@ -14,7 +14,7 @@ function getAllData() {
         if (request.status >= 200 && request.status < 400) {
             $('#myTable').DataTable( {
                 data: data,
-                "columns": [
+                columns: [
                     {"data": "Name"},
                     {"data": "addresses"},
                     {"data": "Suburb"},

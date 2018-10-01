@@ -37,24 +37,24 @@ function calculate() {
     let activityRate;
     switch (selector) {
         case '0':
-            activityRate = 0.19;
+            activityRate = 0.613;
             break;
         case '0.5-1':
-            activityRate = 0.07;
+            activityRate = 0.599;
             break;
         case '1-2':
-            activityRate = 0.29;
+            activityRate = 0.483;
             break;
         case '2-4':
-            activityRate = 0.31;
+            activityRate = 0.433;
             break;
         case '4':
-            activityRate = 0.13;
+            activityRate = 0.412;
             break;
     }
 
     if (bmi < 20) {
-        obesityRate = 0.789;
+        obesityRate = 0.0789;
     } else if (bmi >= 20 && bmi < 25) {
         obesityRate = 0.1526;
     } else if (bmi >= 25 && bmi < 30) {
@@ -62,10 +62,10 @@ function calculate() {
     } else {
         obesityRate = 0.4885;
     }
-    let worstcase = 15.587;
-    let bestcase = 3.183;
+    let worstcase = 1.1015;
+    let bestcase = 0.4909;
     let total = worstcase - bestcase;
-    let status = (obesityRate + activityRate) * 14.3 - bestcase;
+    let status = obesityRate + activityRate - bestcase;
     let riskRate = status / total * 100;
     if (weight >= 10 && weight <=300 && height*100 >= 100 && height*100 <= 240) {
         document.getElementById('myBar').style.width = riskRate + '%';
