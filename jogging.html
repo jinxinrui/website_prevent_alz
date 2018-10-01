@@ -12,6 +12,7 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/map.css" rel="stylesheet">
 </head>
 <body>
 <!-- Navigation -->
@@ -27,31 +28,32 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-heading" style="text-align: center">
-                    <h1>Yoga</h1>
+                    <h1>Jogging</h1>
+                    <div id="mapsearch">
+                        <input type="text" id="autocomplete" placeholder="Search Address">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
 <!-- Content -->
-<div class="container">
+<!-- Google map -->
+<div id="map"></div>
+<!-- DataTable -->
+<div class="embed-responsive">
     <table class="table table-hover" id="myTable">
         <thead>
         <tr>
             <th>Name</th>
+            <th>Address</th>
             <th>Suburb</th>
             <th>Postcode</th>
-            <th>State</th>
+            <th class="distance">Distance (Km)</th>
         </tr>
         </thead>
     </table>
-    <div id="loadingIcon" style="text-align: center">
-        <button class="btn-primary" disabled="true">
-            <i class="fa fa-spinner fa-spin"></i>Loading
-        </button>
-    </div>
 </div>
-
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -59,8 +61,10 @@
 <!-- Customized JS -->
 <script src="js/jogging.js"></script>
 <script src="js/clean-blog.min.js"></script>
-
+<!-- dataTable -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMt2xMvg5InnYbR5FR_9bszfvZjUTwfqc&libraries=places,geometry&callback=initMap" async defer></script>
 
 </body>
 </html>

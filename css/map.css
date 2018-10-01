@@ -1,0 +1,37 @@
+/* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+#map {
+    height: 60%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#autocomplete {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 10px 11px 10px 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+#mapsearch {
+    font-weight: bold;
+    margin-left: 12px;
+}
+
+#search-btn {
+    padding: 10px 11px 10px 13px;
+    width: 70px;
+    background-color: #4682B4;
+    font-weight: bold;
+}

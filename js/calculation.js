@@ -22,9 +22,9 @@ function validateHeight() {
 
 // reset progress bar and input
 function resetProgressBar() {
-    document.getElementById('myBar').style.width = 0;
     document.getElementById('weightAlert').innerHTML = '';
     document.getElementById('heightAlert').innerHTML = '';
+    document.getElementById('pointer').style.display = "none";
 }
 
 //
@@ -68,6 +68,7 @@ function calculate() {
     let status = obesityRate + activityRate - bestcase;
     let riskRate = status / total * 100;
     if (weight >= 10 && weight <=300 && height*100 >= 100 && height*100 <= 240) {
-        document.getElementById('myBar').style.width = riskRate + '%';
+        document.getElementById('pointer').style.paddingLeft = riskRate * 0.95 + '%';
+        document.getElementById('pointer').style.display = "block";
     }
 }
