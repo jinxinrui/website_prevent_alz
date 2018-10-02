@@ -16,6 +16,7 @@ var suburb;
 var contentString = [];
 var markers = [];
 var searchMarkers = [];
+var userLocationMarkers = [];
 var dist;
 
 var infoWindowArr = [];
@@ -73,7 +74,7 @@ function calcDistance(fromLat, fromLng, toLat, toLng) {
 function readData() {
     //read the data from api and display the data based on the lat & long on the map
     $.ajax({
-        url: "http://35.189.41.186/api/yoga",
+        url: "https://cors-anywhere.herokuapp.com/http://35.189.41.186/api/yoga",
         success: function (the_json) {
             DATA = the_json;
             console.log(the_json);
@@ -185,7 +186,7 @@ function displayTableDistance(datas) {
 function readDataUpdatedLocation(latcurrent, lngcurrent) {
     //read the data from api and display the data based on the lat & long on the map
     $.ajax({
-        url: "http://35.189.41.186/api/yoga",
+        url: "https://cors-anywhere.herokuapp.com/http://35.189.41.186/api/yoga",
         success: function (the_json) {
             DATA = the_json;
             console.log(the_json);
@@ -261,8 +262,10 @@ function onload_map() {
             var marker = new google.maps.Marker({
                 position: pos,
                 map: map,
+                animation: google.maps.Animation.DROP,
                 title: "Now your are here"
             });
+            userLocationMarkers.push(marker);
 
             map.setCenter(pos);
             map.setZoom(13);
@@ -285,6 +288,7 @@ function onPlaceChanged() {
     var marker;
     if (val) {
         removeMarkers(searchMarkers);
+        removeMarkers(userLocationMarkers);
         var result = null;
         if (place.geometry) {
             map.panTo(place.geometry.location);
