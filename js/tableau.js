@@ -1,6 +1,5 @@
 window.onload = () => {
-    dementiaFemaleViz();
-    dementiaMaleViz();
+    genderViz();
     dementiaPeopleViz();
     deathRateViz();
     forecastViz();
@@ -116,6 +115,21 @@ function dementiaPeopleViz() {
     var placeholderDiv = document.getElementById("dementiaPeopleViz");
     // URL of the viz to be embedded
     var url = "https://public.tableau.com/views/Noofpeoplewithdementiabystate2011-2018/australiadementia?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}
+
+function genderViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("genderViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/dashboardmaleandfemale/Dashboard1?:embed=y&:display_count=yes&publish=yes";
     // An object that contains options specifying how to embed the viz
     var options = {
         width: '1200px',
