@@ -1,8 +1,8 @@
 window.onload = () => {
-    genderViz();
     dementiaPeopleViz();
     deathRateViz();
-    forecastViz();
+    percentageViz();
+    analysisViz();
 }
 
 function ageGroupViz() {
@@ -43,21 +43,6 @@ function deathRateViz() {
     // An object that contains options specifying how to embed the viz
     var options = {
         width: '1000px',
-        height: '600px',
-        hideTabs: true,
-        hideToolbar: true,
-    };
-    viz = new tableau.Viz(placeholderDiv, url, options);
-}
-
-function forecastViz() {
-    // JS object that points at empty div in the html
-    var placeholderDiv = document.getElementById("forecastViz");
-    // URL of the viz to be embedded
-    var url = "https://public.tableau.com/views/Alzheimersdeaths2005-14-Forecasting/Alzheimersdeaths?:embed=y&:display_count=yes&publish=yes";
-    // An object that contains options specifying how to embed the viz
-    var options = {
-        width: '1200px',
         height: '600px',
         hideTabs: true,
         hideToolbar: true,
@@ -130,6 +115,36 @@ function genderViz() {
     var placeholderDiv = document.getElementById("genderViz");
     // URL of the viz to be embedded
     var url = "https://public.tableau.com/views/dashboardmaleandfemale/Dashboard1?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}
+
+function analysisViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("analysisViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/analysispooneh/Dashboard2?:embed=y&:display_count=yes&publish=yes";
+    // An object that contains options specifying how to embed the viz
+    var options = {
+        width: '1200px',
+        height: '600px',
+        hideTabs: true,
+        hideToolbar: true,
+    };
+    viz = new tableau.Viz(placeholderDiv, url, options);
+}
+
+function percentageViz() {
+    // JS object that points at empty div in the html
+    var placeholderDiv = document.getElementById("percentageViz");
+    // URL of the viz to be embedded
+    var url = "https://public.tableau.com/views/Percentageofpeoplewithdementiabystate2011-2018/Sheet8?:embed=y&:display_count=yes&publish=yes";
     // An object that contains options specifying how to embed the viz
     var options = {
         width: '1200px',
